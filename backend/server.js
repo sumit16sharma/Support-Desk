@@ -1,7 +1,11 @@
 const express = require('express');
+const colors = require('colors');
 const dotenv = require('dotenv').config();
-const PORT = process.env.PORT || 5000;
 const { errorHandler } = require('./middleware/errorMiddleware');
+const connectDB = require('./config/db');
+
+// Connect to Database
+connectDB();
 
 const app = express();
 
@@ -16,6 +20,9 @@ app.get('/', (req, res) => {
 // Routes
 app.use('/api/users', require('./routes/userRoutes'));
 
+// ErrorHandler
 app.use(errorHandler);
+
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server Running on PORT ${PORT}`));
