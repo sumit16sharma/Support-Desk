@@ -3,6 +3,7 @@ import BackButton from '../components/BackButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTickets, reset } from '../features/tickets/ticketSlice';
 import Spinner from '../components/Spinner';
+import TicketItem from '../components/TicketItem';
 
 const Tickets = () => {
   const dispatch = useDispatch();
@@ -37,9 +38,9 @@ const Tickets = () => {
           <div>Status</div>
           <div></div>
         </div>
-        {/* {tickets.map((ticket) => (
-      <TicketItem key={ticket._id} ticket={ticket} />
-    ))} */}
+        {tickets.map((ticket) => (
+          <TicketItem key={ticket._id} ticket={ticket} />
+        ))}
       </div>
     </>
   );
