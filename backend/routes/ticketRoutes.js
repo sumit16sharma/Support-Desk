@@ -9,6 +9,10 @@ const {
   deleteTicket,
 } = require('../cantrollers/ticketCantroller');
 
+// Re-Route into Note Router
+const noteRouter = require('./nodeRoutes');
+router.use('/:ticketId/notes', noteRouter);
+
 router.route('/').get(protect, getTickets).post(protect, createTicket);
 router
   .route('/:id')
