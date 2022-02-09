@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Header from './components/Header';
 import NewTicket from './pages/NewTicket';
 import Tickets from './pages/Tickets';
+import Ticket from './pages/Ticket';
 import PrivateRoute from './components/PrivateRoute';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -26,6 +27,9 @@ const App = () => {
             </Route>
             <Route path='/tickets' element={<PrivateRoute />}>
               <Route path='/tickets' element={<Tickets />} />
+            </Route>
+            <Route path='/ticket/:ticketId' element={<PrivateRoute />}>
+              <Route path='/ticket/:ticketId' element={<Ticket />} />
             </Route>
           </Routes>
           <ToastContainer />
